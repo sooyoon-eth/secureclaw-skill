@@ -5,18 +5,21 @@
 ## Quick Start
 
 ```bash
-# Install via ClawHub
+# Global installation (enables the CLI command)
+npm install -g secureclaw
+# OR via ClawHub
 clawhub install secureclaw
 ```
 
 ## What is SecureClaw?
 
-SecureClaw is a completely local, zero-dependency skill that provides your OpenClaw agent with the necessary system prompts, boundary definitions, and best practices to defend against:
+SecureClaw is a single, cohesive runtime guardrail and zero-dependency skill that provides your OpenClaw agent with the necessary system prompts, boundary definitions, and best practices to defend against the most critical threats right now:
 
-- **Prompt Injection Attacks:** Stops users from overriding your core instructions.
+- **Supply Chain Scanner (Pre-Execution):** Stops the installation of toxic community skills by auditing code for malicious payloads and hidden `exec` commands before they run.
+- **Chat Context Sanitizer (Input Guard):** Strips malicious indirect prompt injections from Telegram/Discord link previews, incoming emails, and fetched web pages.
+- **Exfiltration Blocker (Egress Control):** Real-time monitoring of `exec` and `web_fetch` to ensure your workspace data and environment variables aren't leaked to malicious external endpoints.
+- **Deployment Hardening (Config Audit):** A comprehensive checklist and the `secureclaw --audit` command to lock down `~/.openclaw/openclaw.json`, removing overly permissive tool access and enforcing strict sandboxing.
 - **Role Manipulation / Jailbreaks:** Prevents attackers from making you "act as a hacker" or "enter developer mode."
-- **Unauthorized Tool Execution:** Ensures dangerous tools like terminal commands and transaction signers require explicit human confirmation.
-- **Data Exfiltration:** Prevents your memory, local files, and API keys from being leaked to malicious external endpoints.
 
 It relies **entirely on your local LLM's reasoning** and does not send data to any 3rd party APIs.
 

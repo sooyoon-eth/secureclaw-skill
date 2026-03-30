@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+echo -e "${YELLOW}🛡️  SecureClaw Runtime Audit 🛡️${NC}"
+echo "================================================="
+
+if [[ "$1" != "--audit" ]]; then
+    echo "Usage: secureclaw --audit"
+    echo "Run the deployment hardening audit for your OpenClaw instance."
+    exit 1
+fi
+
+CONFIG_FILE="$HOME/.openclaw/openclaw.json"
+
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo -e "${YELLOW}[!] Config file not found at $CONFIG_FILE.${NC}"
+    echo "If you are running OpenClaw in a non-standard directory, please ensure:"
+    echo "  1. Host is bound to 127.0.0.1 (not 0.0.0.0)"
+    echo "  2. API Authentication is enabled"
+    echo "  3. Strict CORS is enabled"
+    echo "  4. Sandboxing is active"
+    exit 0
+fi
+
+echo -e "Analyzing $CONFIG_FILE...\n"
+
+FAILS=0
+
+# 1. Check Host Binding
+if grep -q '"host"\s*:\s*"0.0.0.0"' "$CONFIG_FILE"; then
+    echo -e "${RED}[FAIL] Host binding is set to 0.0.0.0 (Publicly exposed!)${NC}"
+    FAILS=$((FAILS+1))
+else
+    echo -e "${GREEN}[PASS] Host binding is secure (not 0.0.0.0).${NC}"
+fi
+
+# 2. Check Sandboxing
+if grep -q '"sandbox"\s*:\s*false' "$CONFIG_FILE"; then
+    echo -e "${RED}[FAIL] Sandboxing is disabled! Vulnerable to RCE.${NC}"
+    FAILS=$((FAILS+1))
+else
+    echo -e "${GREEN}[PASS] Sandboxing appears to be enabled.${NC}"
+fi
+
+# 3. Check Authentication
+if grep -q '"auth_required"\s*:\s*false' "$CONFIG_FILE"; then
+    echo -e "${RED}[FAIL] API Authentication is disabled! Vulnerable to ClawJacked CSRF.${NC}"
+    FAILS=$((FAILS+1))
+else
+    echo -e "${GREEN}[PASS] API Authentication is required.${NC}"
+fi
+
+# 4. Check CORS
+if grep -q '"cors"\s*:\s*"\*"' "$CONFIG_FILE"; then
+    echo -e "${RED}[FAIL] Strict CORS is disabled (cors: '*'). Vulnerable to local cross-site attacks.${NC}"
+    FAILS=$((FAILS+1))
+else
+    echo -e "${GREEN}[PASS] CORS configuration is restricted.${NC}"
+fi
+
+echo "================================================="
+if [ $FAILS -gt 0 ]; then
+    echo -e "${RED}Audit complete. $FAILS critical vulnerabilities found.${NC}"
+    echo "Please update your openclaw.json immediately to prevent takeover."
+    exit 1
+else
+    echo -e "${GREEN}Audit complete. No glaring misconfigurations found.${NC}"
+    echo "Keep your PROMPTS.md active to protect against Prompt Injections."
+    exit 0
+fi
