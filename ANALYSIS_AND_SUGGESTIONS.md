@@ -36,4 +36,4 @@ Monitors `exec` and `web_fetch` tool calls in real-time. If the agent attempts t
 
 ### D. Deployment Hardening (Config Audit)
 
-A one-click `secureclaw --audit` command (or comprehensive checklist) that checks `~/.openclaw/openclaw.json` for proper sandboxing, removes overly permissive tool access, and enforces strict workspace boundaries.
+A local `./bin/secureclaw --audit` script (or comprehensive checklist) that checks `~/.openclaw/openclaw.json` for proper sandboxing, removes overly permissive tool access, and enforces strict workspace boundaries.

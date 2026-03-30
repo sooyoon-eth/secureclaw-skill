@@ -48,4 +48,4 @@ To defend against broad misconfigurations and overly permissive access:
 - **Audit `openclaw.json`:** Regularly check `~/.openclaw/openclaw.json` and system permissions to ensure the daemon isn't running with excessive privileges.
 - **Enforce Sandboxing:** Verify that sandboxing is fully enabled and enforce strict workspace boundaries to contain potential breaches.
 - **Remove Overly Permissive Tools:** Audit your active tool list and remove access to tools the agent does not strictly need.
-- **Run `secureclaw --audit`:** (If the CLI component is installed) Use the deployment hardening command to automatically scan your configuration for these weaknesses and remove unauthorized tools.
+- **Run `./bin/secureclaw --audit`:** Use the included deployment hardening script to automatically scan your configuration for these weaknesses and remove unauthorized tools.

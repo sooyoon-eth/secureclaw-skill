@@ -10,7 +10,7 @@ echo -e "${YELLOW}🛡️  SecureClaw Runtime Audit 🛡️${NC}"
 echo "================================================="
 
 if [[ "$1" != "--audit" ]]; then
-    echo "Usage: secureclaw --audit"
+    echo "Usage: ./bin/secureclaw --audit"
     echo "Run the deployment hardening audit for your OpenClaw instance."
     exit 1
 fi

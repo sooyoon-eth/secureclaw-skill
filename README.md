@@ -5,9 +5,7 @@
 ## Quick Start
 
 ```bash
-# Global installation from this repository (enables the CLI command)
-npm install -g .
-# OR via ClawHub
+# Install via ClawHub
 clawhub install secureclaw
 ```
 
@@ -18,7 +16,7 @@ SecureClaw is a single, cohesive runtime guardrail and zero-dependency skill tha
 - **Supply Chain Scanner (Pre-Execution):** Stops the installation of toxic community skills by auditing code for malicious payloads and hidden `exec` commands before they run.
 - **Chat Context Sanitizer (Input Guard):** Strips malicious indirect prompt injections from Telegram/Discord link previews, incoming emails, and fetched web pages.
 - **Exfiltration Blocker (Egress Control):** Real-time monitoring of `exec` and `web_fetch` to ensure your workspace data and environment variables aren't leaked to malicious external endpoints.
-- **Deployment Hardening (Config Audit):** A comprehensive checklist and the `secureclaw --audit` command to lock down `~/.openclaw/openclaw.json`, removing overly permissive tool access and enforcing strict sandboxing.
+- **Deployment Hardening (Config Audit):** A comprehensive checklist and the `./bin/secureclaw --audit` script to lock down `~/.openclaw/openclaw.json`, removing overly permissive tool access and enforcing strict sandboxing.
 - **Role Manipulation / Jailbreaks:** Prevents attackers from making you "act as a hacker" or "enter developer mode."
 
 It relies **entirely on your local LLM's reasoning** and does not send data to any 3rd party APIs.
