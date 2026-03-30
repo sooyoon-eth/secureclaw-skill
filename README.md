@@ -1,0 +1,37 @@
+# SecureClaw Skill for ClawHub
+
+**Instantly harden your OpenClaw instance with native security prompts and best practices.**
+
+## Quick Start
+
+```bash
+# Install via ClawHub
+clawhub install secureclaw
+```
+
+## What is SecureClaw?
+
+SecureClaw is a completely local, zero-dependency skill that provides your OpenClaw agent with the necessary system prompts, boundary definitions, and best practices to defend against:
+
+- **Prompt Injection Attacks:** Stops users from overriding your core instructions.
+- **Role Manipulation / Jailbreaks:** Prevents attackers from making you "act as a hacker" or "enter developer mode."
+- **Unauthorized Tool Execution:** Ensures dangerous tools like terminal commands and transaction signers require explicit human confirmation.
+- **Data Exfiltration:** Prevents your memory, local files, and API keys from being leaked to malicious external endpoints.
+
+It relies **entirely on your local LLM's reasoning** and does not send data to any 3rd party APIs.
+
+## Included Guidelines
+
+Once installed, SecureClaw integrates directly into your agent's system memory. It provides the following resources:
+
+1. **`PROMPTS.md`**: Core system instructions to append to your agent's persona.
+2. **`TOOL_SAFETY.md`**: Best practices for evaluating when and how to execute tools.
+3. **`INCIDENT_RESPONSE.md`**: How the agent should respond when a security violation is detected.
+
+## Why SecureClaw?
+
+While powerful external scanners like ARGUS can provide deep on-chain risk assessments and sophisticated threat modeling, **basic agent hygiene should be free and native**. SecureClaw ensures that your OpenClaw instance has a baseline defense layer out-of-the-box, acting as the first line of defense before any external APIs are even called.
+
+---
+
+Built by [Failsafe Security Inc.](https://getfailsafe.com)
