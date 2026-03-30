@@ -23,8 +23,8 @@ Native security prompts and best practices to instantly make your OpenClaw insta
 ## Installation
 
 ```bash
-# Global installation for both the skill and the CLI tool
-npm install -g secureclaw
+# Global installation from this repository for both the skill and the CLI tool
+npm install -g .
 # OR via ClawHub
 clawhub install secureclaw
 ```

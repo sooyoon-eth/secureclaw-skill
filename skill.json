@@ -5,6 +5,7 @@
   "os": ["darwin", "linux", "win32"],
   "cost": 0,
   "category": "security",
+  "always": true,
   "tags": ["security", "safety", "prompts", "openclaw", "native", "offline"],
   "author": "Failsafe Security Inc.",
   "homepage": "https://getfailsafe.com"

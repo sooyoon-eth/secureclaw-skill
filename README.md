@@ -5,8 +5,8 @@
 ## Quick Start
 
 ```bash
-# Global installation (enables the CLI command)
-npm install -g secureclaw
+# Global installation from this repository (enables the CLI command)
+npm install -g .
 # OR via ClawHub
 clawhub install secureclaw
 ```

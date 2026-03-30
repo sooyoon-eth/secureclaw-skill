@@ -3,6 +3,15 @@
   "version": "1.0.0",
   "description": "Native security prompts and best practices to instantly make your OpenClaw instance safer without relying on 3rd party APIs.",
   "main": "SKILL.md",
+  "files": [
+    "bin",
+    "PROMPTS.md",
+    "BEST_PRACTICES.md",
+    "SKILL.md",
+    "skill.json",
+    "ANALYSIS_AND_SUGGESTIONS.md",
+    "README.md"
+  ],
   "keywords": [
     "security",
     "openclaw",
@@ -20,6 +29,7 @@
   "skill": {
     "os": ["darwin", "linux", "win32"],
     "cost": 0,
+    "always": true,
     "category": "security"
   }
 }
