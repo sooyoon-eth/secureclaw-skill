@@ -1,6 +1,6 @@
 {
   "name": "secureclaw",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Native security prompts and best practices to instantly make your OpenClaw instance safer without relying on 3rd party APIs.",
   "os": ["darwin", "linux", "win32"],
   "cost": 0,

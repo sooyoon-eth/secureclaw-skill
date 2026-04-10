@@ -1,15 +1,13 @@
 {
   "name": "secureclaw",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Native security prompts and best practices to instantly make your OpenClaw instance safer without relying on 3rd party APIs.",
   "main": "SKILL.md",
   "files": [
-    "bin/secureclaw",
     "PROMPTS.md",
     "BEST_PRACTICES.md",
     "SKILL.md",
     "skill.json",
-    "ANALYSIS_AND_SUGGESTIONS.md",
     "README.md"
   ],
   "keywords": [
