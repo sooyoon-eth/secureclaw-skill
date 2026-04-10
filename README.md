@@ -25,9 +25,7 @@ It relies **entirely on your local LLM's reasoning** and does not send data to a
 
 Once installed, SecureClaw is intended to be included in your agent's runtime context. It provides the following resources:
 
-1. **`PROMPTS.md`**: Core system instructions to append to your agent's persona.
-2. **`TOOL_SAFETY.md`**: Best practices for evaluating when and how to execute tools.
-3. **`INCIDENT_RESPONSE.md`**: How the agent should respond when a security violation is detected.
+1. **`SKILL.md`**: Core system instructions and security directives for your agent.
 
 ## Why SecureClaw?
 

@@ -4,8 +4,6 @@
   "description": "Native security prompts and best practices to instantly make your OpenClaw instance safer without relying on 3rd party APIs.",
   "main": "SKILL.md",
   "files": [
-    "PROMPTS.md",
-    "BEST_PRACTICES.md",
     "SKILL.md",
     "skill.json",
     "README.md"
